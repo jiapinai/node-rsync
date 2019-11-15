@@ -1019,7 +1019,7 @@ function escapeShellArg(arg) {
 function escapeFileArg(filename) {
   filename = filename.replace(/(["'`\s\\\(\)\\$])/g,'\\$1');
   if (!/(\\\\)/.test(filename)) {
-    return filename;
+    return "'" + filename + "'";
   }
   // Under Windows rsync (with cygwin) and OpenSSH for Windows
   // (http://www.mls-software.com/opensshd.html) are using 
